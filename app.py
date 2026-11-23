@@ -5,9 +5,6 @@ import numpy as np
 import requests
 import streamlit as st
 from PIL import Image
-
-# TensorFlow is only needed for the photo checker. If it is missing
-# (for example on Streamlit Cloud), the live dashboard still works.
 try:
     import tensorflow as tf
     HAS_TF = True
@@ -16,8 +13,8 @@ except Exception:
 
 st.set_page_config(page_title="Tomato Leaf Monitor", page_icon="🍅")
 
-MODEL_PATH = "teammate_model.keras"                          # put this file next to app_v5.py
-CLASS_NAMES = ["Early_Blight", "Healthy", "Leaf_Miner"]  # same order as the trained model
+MODEL_PATH = "teammate_model.keras"
+CLASS_NAMES = ["Early_Blight", "Healthy", "Leaf_Miner"]
 THRESHOLD = 0.50
 
 TXT = {
